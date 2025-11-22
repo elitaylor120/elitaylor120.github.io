@@ -1,7 +1,4 @@
----
----
-<link rel="stylesheet" href="style.css">
-
+-------------------------------------------------------
 # E-Space
  Welcome to my digital webpage that stores data from all of my discoveries and adventures. My name is Eli, and I first founded this website in 2025.
 
