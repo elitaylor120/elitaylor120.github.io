@@ -1,27 +1,92 @@
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fun 'N Posts!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 <div class="panel">
-  <div class="header">Fun 'N Posts</div>
-  <div class="description">This is a simple forums website I have developed that mimics a Y2K style.
-  </div>
-</div> 
+    <div class="header">Fun 'N Posts</div>
+    <div class="news">Latest News: Nothing Yet...</div>
+</div>
+
 <br>
-<div class="panel">
-  <div class="panel-title">Welcome Post. - By Eli Taylor (11/26/2025)</div>
-  <div class="panel-body">
-Hello and welcome to my small little Y2K themed website. Enjoy!
-  </div>
-</div>
-<div class="panel">
-  <div class="panel-title">Light... - By Lonnie (11/26/2025)</div>
-  <div class="panel-body">
-Don't stare up at a light, its not good for you.
-  </div>
-</div>
-<div class="panel">
-  <div class="panel-title">No More Posts Left To Find... (Yet!)</div>
-  <div class="panel-body">
-  <a href="https://forms.gle/B7U2j6NHD94mpoFPA">
-   <button>Make a Post</button>
-</a>  
-  </div>
-</div>
+<div id="posts"></div>
+<br>
+<script>
+fetch("https://script.google.com/macros/s/AKfycbwHGlRnz3vf_VflJs3mDqPghNvQQ0kZxXS0XzO9t21F7f3jmA1jiv-PtHRqCPR_-Adbow/exec")
+  .then(r => r.json())
+  .then(posts => {
+    const container = document.getElementById("posts");
+    posts.forEach(p => {
+      container.innerHTML += `
+      <div class="panel">
+        <div class="panel-title">${p.title} - By ${p.author}</div>
+        <div class="panel-body">${p.body}</div>
+      </div>`;
+    });
+  });
+</script>
+<style>
+body {
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  background: #d7d7d7;
+  margin: 0;
+  padding: 20px;
+}
+
+.news {
+  background: #96aed9 !important;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid #7a8da1;
+}
+
+.log {
+  background: #96aed9 !important;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid #7a8da1;
+}
+
+.header {
+  background: linear-gradient(#6fa2cf, #2c5d89, #6fa2cf);
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: 1px solid #2c5d89;
+  border-radius: 2px;
+  text-shadow: 0 1px 0 #000;
+}
+
+.panel {
+  background: #f4f4f4;
+  border: 1px solid #7a8da1;
+  margin-top: 15px;
+  box-shadow: inset 0 0 3px #ffffff, inset 0 0 7px #cccccc;
+}
+
+.panel-title {
+  background: linear-gradient(#eaf3ff, #c7d9f3);
+  padding: 6px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid #7a8da1;
+}
+
+.panel-body {
+  padding: 10px;
+  font-size: 12px;
+  color: #222;
+}
+
+p {
+   font-size: 14px;
+}
+
+h2 {
+    color: #ff0000;
+}
+<style>
+</body>
+</html>
