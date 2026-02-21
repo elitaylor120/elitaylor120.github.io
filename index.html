@@ -1,51 +1,36 @@
-<p>Loading failed...</p>
-<script>
-    // *** IMPORTANT: Replace with your actual webhook URL ***
-    const webhookUrl = "https://discord.com/api/webhooks/1474817745194320046/fENhil3t4bbKKFm08FpovniBZOQyYac6YTUnn5yDTarv9ZI2IJ4DR07Ad9F9OzHhfV0h";
+<h1>welcome to classicblue.new!</h1>
+<p>we are a nice, fun, safe, and respectful community!</p>
+<br>
+<br>
+<h2>posts:</h2>
+<hr>
+<h3>Welcome Post: TheOwner101.</h3>
+<p>Welcome to my little social media named Classicblue! I hope you enjoy and have fun.</p> 
+<hr>
+<br>
+<br>
+<hr>
+<h3>Aubree: AubreeVtube</h3>
+<p>am i diddy?</p>
+<hr>
+<br>
+<br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdelHcs4bv9SARxbd8nrMsHpRR1YkvUrceb0DSnSPvRTU6tcw/viewform?usp=dialog" target="_Blank">
+  <button>make a post.</button>
+</a>
 
-    // Function to fetch the user's IP and send it to the webhook
-    async function logUserIp() {
-      try {
-        // 1. Get the IP address from a third-party API
-        const ipResponse = await fetch('https://api.ipify.org');
-        const ipData = await ipResponse.json();
-        const userIp = ipData.ip;
+<p>Submissions are collected using Google Forms.
+Google may collect technical data as described in their Privacy Policy.
+classicblue.new does not receive or store personal information, due to COPPA protection.</p>
+<style>
+body {
+  background-color: #1DA1F2;
+  color: white;
+}
 
-        // 2. (Optional) Get more details from another API
-        const detailsResponse = await fetch(`http://ip-api.com{userIp}`);
-        const detailsData = await detailsResponse.json();
-
-        // 3. Prepare the data payload for the webhook
-        const payload = {
-          content: "**New Website Visitor IP Logged:**",
-          embeds: [{
-            title: "Visitor Details",
-            fields: [
-              { name: "IP Address", value: userIp, inline: true },
-              { name: "Country", value: detailsData.country, inline: true },
-              { name: "Region", value: detailsData.regionName, inline: true },
-              { name: "City", value: detailsData.city, inline: true },
-              { name: "ISP", value: detailsData.isp, inline: false }
-            ]
-          }]
-        };
-
-        // 4. Send the payload to the webhook URL using a POST request
-        await fetch(webhookUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
-
-        console.log('IP information sent to webhook.');
-
-      } catch (error) {
-        console.error('Error logging IP:', error);
-      }
-    }
-
-    // Call the function when the page loads
-    logUserIp();
-  </script>
+button {
+  color: white;
+  background-color: #1DA1F2;
+  border-color: white;
+}
+</style>
